@@ -1,0 +1,25 @@
+{
+  "name": "dsdv-project",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "vite": "vite",
+    "dev": "vite dev",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.39",
+    "@types/react-dom": "^18.2.17",
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.2.0",
+    "antd": "^5.11.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "vite": "^5.0.4"
+  }
+}
