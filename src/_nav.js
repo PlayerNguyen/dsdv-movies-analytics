@@ -1,7 +1,7 @@
 import React from 'react'
 import CIcon from '@coreui/icons-react'
-import { cilChart, cilHome, cilFolder, cilGraph } from '@coreui/icons'
-import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
+import { cilHome, cilFolder, cilGraph } from '@coreui/icons'
+import { CNavItem, CNavTitle } from '@coreui/react'
 
 const _nav = [
   {
@@ -10,7 +10,7 @@ const _nav = [
   },
   {
     component: CNavItem,
-    name: 'Introduction',
+    name: 'Home',
     to: '/introduction',
     icon: <CIcon icon={cilHome} customClassName="nav-icon" />,
     badge: {
@@ -28,7 +28,7 @@ const _nav = [
   },
   {
     component: CNavItem,
-    name: 'Category',
+    name: 'Top 250 Movies',
     to: '/category',
     icon: <CIcon icon={cilFolder} customClassName="nav-icon" />,
     badge: {

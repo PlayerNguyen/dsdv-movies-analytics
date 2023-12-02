@@ -1,15 +1,14 @@
 import React from 'react'
-
+import styles from '../../assets/css/styles.module.css'
 import { CFormSelect } from '@coreui/react'
-import { getStyle, hexToRgba } from '@coreui/utils'
-import CIcon from '@coreui/icons-react'
 
 // import WidgetsBrand from '../widgets/WidgetsBrand'
 // import WidgetsDropdown from '../widgets/WidgetsDropdown'
 
 const Introduction = () => {
   return (
-    <>
+    <div>
+      <h1 className={styles.Introduction}>Welcome!</h1>
       <CFormSelect
         aria-label="Default select example"
         options={[
@@ -19,7 +18,7 @@ const Introduction = () => {
           { label: 'Three', value: '3', disabled: true },
         ]}
       />
-    </>
+    </div>
   )
 }
 
