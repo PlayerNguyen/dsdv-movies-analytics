@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import styles from '../assets/css/styles.module.css'
 
 import { CSidebar, CSidebarBrand, CSidebarNav, CSidebarToggler } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
@@ -14,6 +15,7 @@ import 'simplebar/dist/simplebar.min.css'
 
 // sidebar nav config
 import navigation from '../_nav'
+import { cilMovie } from '@coreui/icons'
 
 const AppSidebar = () => {
   const dispatch = useDispatch()
@@ -30,8 +32,8 @@ const AppSidebar = () => {
       }}
     >
       <CSidebarBrand className="d-none d-md-flex" to="/">
-        <CIcon className="sidebar-brand-full" icon={logoNegative} height={35} />
-        <CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} />
+        <CIcon icon={cilMovie} height={35} />
+        <span className={styles.movielogo}>TopMovies</span>
       </CSidebarBrand>
       <CSidebarNav>
         <SimpleBar>
