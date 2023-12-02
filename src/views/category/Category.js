@@ -13,10 +13,10 @@ const Category = () => {
       <CFormSelect
         aria-label="Default select example Category"
         options={[
-          'Open this select menu hi',
-          { label: 'One', value: '1' },
-          { label: 'Two', value: '2' },
-          { label: 'Three', value: '3', disabled: true },
+          'Genre',
+          { label: 'Drama', value: 'drama' },
+          { label: 'Crime, Drama', value: 'Crime, Drama' },
+          { label: 'Others', value: 'others' },
         ]}
       />
     </>
