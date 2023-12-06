@@ -21,11 +21,8 @@ const Statistics = () => {
           <CWidgetStatsF className="mb-3" title="Widget title" value="89.9%" />
         </CCol>
       </CRow>
-      <CRow>
-        <CCol xs={3}>
-          <div>Bổ sung charts như design dứới đây nhé</div>
-        </CCol>
-        <CCol>
+      <CRow xl={{ gutterX: 12, gutterY: 12 }}>
+        <CCol xs={6} style={{ background: 'white', borderRadius: '6px', padding: 16 }}>
           <PieChart />
         </CCol>
       </CRow>
