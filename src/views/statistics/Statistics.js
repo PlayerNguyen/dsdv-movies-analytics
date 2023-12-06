@@ -1,9 +1,5 @@
-import React from 'react'
-
-import { CFormSelect, CRow, CCol } from '@coreui/react'
-import { getStyle, hexToRgba } from '@coreui/utils'
-import CIcon from '@coreui/icons-react'
-import { CWidgetStatsF } from '@coreui/react'
+import { CCol, CRow, CWidgetStatsF } from '@coreui/react'
+import PieChart from './PieChart'
 
 // import WidgetsBrand from '../widgets/WidgetsBrand'
 // import WidgetsDropdown from '../widgets/WidgetsDropdown'
@@ -28,6 +24,9 @@ const Statistics = () => {
       <CRow>
         <CCol xs={3}>
           <div>Bổ sung charts như design dứới đây nhé</div>
+        </CCol>
+        <CCol>
+          <PieChart />
         </CCol>
       </CRow>
     </>
