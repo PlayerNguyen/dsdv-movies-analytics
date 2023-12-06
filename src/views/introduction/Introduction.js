@@ -1,4 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 import styles from '../../assets/css/styles.module.css'
 import images1 from '../../assets/images/Poster_movies/Django(2012).jpg'
 import images2 from '../../assets/images/Poster_movies/The Wolf of Wall Street.jpg'
@@ -7,41 +10,57 @@ import images4 from '../../assets/images/Poster_movies/InsideOut(2015).jpg'
 import images5 from '../../assets/images/Poster_movies/YourName.jpg'
 import images6 from '../../assets/images/Poster_movies/TheGood(1996).jpg'
 
-// import { CFormSelect } from '@coreui/react'
-
-// import WidgetsBrand from '../widgets/WidgetsBrand'
-// import WidgetsDropdown from '../widgets/WidgetsDropdown'
-
 const Home = () => {
-  const [showlist, setShowlist] = React.useState(false)
+  const [showlist, setShowlist] = useState(false)
+
   const handleListButtonClick = () => {
     setShowlist(!showlist)
   }
+
   const movieList = [
     { id: 1, title: 'Django' },
     { id: 2, title: 'The Wolf of Wall Street' },
     { id: 3, title: 'Interstellar' },
+    { id: 4, title: 'Inside Out' },
+    { id: 5, title: 'Your Name' },
+    { id: 6, title: 'The Good' },
   ]
+
+  const sliderSettings = {
+    infinite: false,
+    speed: 500,
+    slidesToShow: 1.5,
+    slidesToScroll: 10,
+    centerMode: true,
+    focusOnSelect: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          centerMode: false,
+          focusOnSelect: false,
+        },
+      },
+    ],
+  }
+
   return (
     <div>
       <h1 className={styles.Introduction}>Welcome!</h1>
       <p className={styles.text}>Top 5 Most Popular Movies</p>
+
       <div className={styles.imageContainer}>
-        <figure className={styles.figure}>
-          {/* Figure 1 */}
+        <Slider {...sliderSettings}>
           <img src={images1} alt="Django" className={styles.image1} />
-          {/* Figure 2 */}
           <img src={images2} alt="The Wolf of Wall Street" className={styles.image2} />
-          {/* Figure 3 */}
           <img src={images3} alt="Interstellar" className={styles.image3} />
-          {/* Figure 4 */}
           <img src={images4} alt="Inside Out" className={styles.image4} />
-          {/* Figure 5 */}
           <img src={images5} alt="Your Name" className={styles.image5} />
-          {/* Figure 6 */}
           <img src={images6} alt="The Good" className={styles.image6} />
-        </figure>
+        </Slider>
       </div>
+
       <button onClick={handleListButtonClick}>{showlist ? 'Back' : 'Watch List'}</button>
 
       {showlist && (
@@ -57,4 +76,5 @@ const Home = () => {
     </div>
   )
 }
+
 export default Home
