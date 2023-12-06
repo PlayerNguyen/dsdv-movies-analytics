@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {CTable} from '@coreui/react'
+import { CTable } from '@coreui/react'
 //import { getStyle, hexToRgba } from '@coreui/utils'
 //import CIcon from '@coreui/icons-react'
 
@@ -186,7 +186,7 @@ const CategoryTable = () => {
       year: '2014',
       heading_1: '8.5',
       heading_2: 'Drama,Music',
-      _cellProps: {id: {scope: 'row'}},
+      _cellProps: { id: { scope: 'row' } },
     },
   ]
 
@@ -195,10 +195,7 @@ const CategoryTable = () => {
       <span>Filter by: </span>
       <select aria-label="Default select example Category">
         {options.map((option, index) => (
-          <option
-            key={index}
-            value={typeof option === 'string' ? option : option.value}
-          >
+          <option key={index} value={typeof option === 'string' ? option : option.value}>
             {typeof option === 'string' ? option : option.label}
           </option>
         ))}
@@ -210,4 +207,3 @@ const CategoryTable = () => {
 }
 
 export default CategoryTable
-
