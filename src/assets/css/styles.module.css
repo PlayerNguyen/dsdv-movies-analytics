@@ -1,9 +1,30 @@
 .movielogo{
-     font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 .Introduction{
-    font-family: 'Roboto', sans-serif;
-    font-size: 24px;
-    color: #000000;
-    font-weight: bold;
+   font-family: 'Roboto', sans-serif;
+   font-size: 24px;
+   color: #000000;
+   font-weight: bold;
 }
+.text{
+   font-family: 'Roboto', sans-serif;
+   color: #000000;;
+   margin: auto;
+}
+.figure img {
+   width: 200px; /* Set a fixed width */
+   height: 300px; /* Set a fixed height */
+   margin-right: 10px; /* Adjust the spacing between images */
+   border-radius: 10px; /* Add rounded corners */
+   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+   transition: transform 0.3s ease-in-out; /* Add a smooth transition effect */
+}
+
+.figure img:hover {
+   transform: scale(1.1); /* Scale the image on hover */
+}
+
+ 
+
+ 
