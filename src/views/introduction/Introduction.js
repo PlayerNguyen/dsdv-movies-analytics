@@ -27,9 +27,9 @@ const Home = () => {
   ]
 
   const sliderSettings = {
-    infinite: false,
+    infinite: true,
     speed: 500,
-    slidesToShow: 1.5,
+    slidesToShow: 3,
     slidesToScroll: 10,
     centerMode: true,
     focusOnSelect: true,
