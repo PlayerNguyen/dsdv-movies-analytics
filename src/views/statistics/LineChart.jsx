@@ -11,7 +11,7 @@ export default function LineChart() {
       let year = [...new Set(csvData.map((item) => item.year))]
       year = year.sort((a, b) => a - b)
       year = year.filter((item) => item >= 2009)
-      console.log(year)
+      // console.log(year)
       const ratingAndYear = csvData.map((item) => [item.rating, item.year])
       const averageRating = {}
       ratingAndYear.forEach((item) => {
@@ -34,7 +34,7 @@ export default function LineChart() {
       const svgElement = d3.select(ref.current)
       const minYear = Math.min(...year)
       const maxYear = Math.max(...year)
-      console.log(minYear, maxYear)
+      // console.log(minYear, maxYear)
       const xScale = d3
         .scaleLinear()
         .domain([2009, 2023])
@@ -127,7 +127,7 @@ export default function LineChart() {
         if (x0 < minYear || x0 > maxYear) {
           return
         }
-        console.log(x0)
+        // console.log(x0)
         const i = bisect(Object.entries(averageRatingArray), Math.round(x0), 1)
         const selectedData = Object.entries(averageRatingArray)[i]
         focus.attr('cx', xScale(selectedData[0])).attr('cy', yScale(selectedData[1]))
