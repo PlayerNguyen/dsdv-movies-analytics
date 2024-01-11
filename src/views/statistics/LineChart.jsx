@@ -10,6 +10,7 @@ export default function LineChart() {
     d3.csv(Data).then((csvData) => {
       let year = [...new Set(csvData.map((item) => item.year))]
       year = year.sort((a, b) => a - b)
+      year = year.filter((item) => item >= 2009)
       console.log(year)
       const ratingAndYear = csvData.map((item) => [item.rating, item.year])
       const averageRating = {}
@@ -22,7 +23,7 @@ export default function LineChart() {
       })
       const averageRatingArray = {}
       Object.entries(averageRating).forEach((item) => {
-        averageRatingArray[item[0]] = d3.mean(item[1])
+        if (item[0] >= 2009) averageRatingArray[item[0]] = d3.mean(item[1])
       })
 
       Object.entries(averageRatingArray).forEach((item) => {
@@ -36,20 +37,33 @@ export default function LineChart() {
       console.log(minYear, maxYear)
       const xScale = d3
         .scaleLinear()
-        .domain([1921, 2030])
+        .domain([2009, 2023])
         .range([0, GRAPH_PROPERTY.width - GRAPH_PROPERTY.margin])
       const yScale = d3
         .scaleLinear()
-        .domain([8, 9.5])
+        .domain([8, 8.7])
         .range([GRAPH_PROPERTY.height - GRAPH_PROPERTY.margin, 0])
       const xAxis = d3.axisBottom(xScale).ticks(10)
       const yAxis = d3.axisLeft(yScale).ticks(10)
       svgElement
         .append('g')
-        .attr('transform', `translate(30, ${GRAPH_PROPERTY.height - GRAPH_PROPERTY.margin + 10})`)
+        .attr('transform', `translate(90,${GRAPH_PROPERTY.height - GRAPH_PROPERTY.margin + 10})`)
         .call(xAxis)
-      svgElement.append('g').attr('transform', `translate(30, 10)`).call(yAxis)
-
+      svgElement.append('g').attr('transform', `translate(90,10)`).call(yAxis)
+      svgElement
+        .append('text')
+        .attr('transform', `translate(500,450)`)
+        .text('Year')
+        .style('text-anchor', 'middle')
+        .style('font-size', '20px')
+        .style('font-weight', 'bold')
+      svgElement
+        .append('text')
+        .attr('transform', `translate(40,200)rotate(-90)`)
+        .text('Average Rating')
+        .style('text-anchor', 'middle')
+        .style('font-size', '20px')
+        .style('font-weight', 'bold')
       const line = d3
         .line()
         .x(function (d) {
@@ -64,9 +78,8 @@ export default function LineChart() {
         .attr('fill', 'none')
         .attr('stroke', 'steelblue')
         .attr('stroke-width', 1.5)
-        .attr('transform', `translate(30, 10)`)
+        .attr('transform', `translate(90,10)`)
         .attr('d', line)
-      console.log(Object.entries(averageRatingArray))
       const bisect = d3.bisector(function (d) {
         return d[0]
       }).left
@@ -76,7 +89,7 @@ export default function LineChart() {
         .style('fill', 'none')
         .attr('stroke', 'black')
         .attr('r', 8.5)
-        .attr('transform', `translate(30, 10)`)
+        .attr('transform', `translate(90,10)`)
         .style('opacity', 0)
       let tooltip = d3
         .select('body')
@@ -100,6 +113,7 @@ export default function LineChart() {
         .style('pointer-events', 'all')
         .attr('width', GRAPH_PROPERTY.width - GRAPH_PROPERTY.margin)
         .attr('height', GRAPH_PROPERTY.height - GRAPH_PROPERTY.margin)
+        .attr('transform', `translate(50)`)
         .on('mouseover', mouseover)
         .on('mousemove', mousemove)
         .on('mouseout', mouseout)
@@ -114,7 +128,7 @@ export default function LineChart() {
           return
         }
         console.log(x0)
-        const i = bisect(Object.entries(averageRatingArray), x0, 1)
+        const i = bisect(Object.entries(averageRatingArray), Math.round(x0), 1)
         const selectedData = Object.entries(averageRatingArray)[i]
         focus.attr('cx', xScale(selectedData[0])).attr('cy', yScale(selectedData[1]))
         tooltip
