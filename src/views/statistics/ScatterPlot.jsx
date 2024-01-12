@@ -108,7 +108,7 @@ export default function ScatterPlot() {
           .html(
             `
             <ul>
-              <li>Movie: ${seletedData.movie}</li>
+              <li>Movie: ${seletedData.name}</li>
               <li>Year: ${seletedData.year}</li>
               <li>Rating: ${seletedData.rating}</li>
               <li>Box Office: ${seletedData.box_office}</li>
