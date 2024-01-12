@@ -6,6 +6,7 @@ import Accordion from '@mui/material/Accordion'
 import AccordionSummary from '@mui/material/AccordionSummary'
 import AccordionDetails from '@mui/material/AccordionDetails'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import BarChart from './BarChart'
 
 // import WidgetsBrand from '../widgets/WidgetsBrand'
 // import WidgetsDropdown from '../widgets/WidgetsDropdown'
@@ -61,6 +62,18 @@ const Statistics = () => {
         </AccordionSummary>
         <AccordionDetails>
           <ScatterPlot />
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel4-content"
+          id="panel4-header"
+        >
+          Accordion 4
+        </AccordionSummary>
+        <AccordionDetails>
+          <BarChart />
         </AccordionDetails>
       </Accordion>
     </>
