@@ -33,6 +33,8 @@ const Home = () => {
     slidesToScroll: 10,
     centerMode: true,
     focusOnSelect: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
     responsive: [
       {
         breakpoint: 768,
