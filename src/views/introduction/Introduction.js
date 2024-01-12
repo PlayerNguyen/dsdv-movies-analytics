@@ -9,6 +9,8 @@ import images3 from '../../assets/images/Poster_movies/Interstellar(2014).jpg'
 import images4 from '../../assets/images/Poster_movies/InsideOut(2015).jpg'
 import images5 from '../../assets/images/Poster_movies/YourName.jpg'
 import images6 from '../../assets/images/Poster_movies/TheGood(1996).jpg'
+import Stack from '@mui/material/Stack'
+import Button from '@mui/material/Button'
 
 const Home = () => {
   const [showlist, setShowlist] = useState(false)
@@ -63,8 +65,13 @@ const Home = () => {
         </Slider>
       </div>
 
-      <button onClick={handleListButtonClick}>{showlist ? 'Back' : 'Watch List'}</button>
+      {/*<button onClick={handleListButtonClick}>{showlist ? 'Back' : 'Watch List'}</button>*/}
 
+      <Stack spacing={2} direction="row">
+        <Button variant="contained" onClick={handleListButtonClick}>
+          {showlist ? 'Back' : 'Watch List'}
+        </Button>
+      </Stack>
       {showlist && (
         <div>
           <h2>List of Movies</h2>
