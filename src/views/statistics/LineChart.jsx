@@ -132,7 +132,11 @@ export default function LineChart() {
         const selectedData = Object.entries(averageRatingArray)[i]
         focus.attr('cx', xScale(selectedData[0])).attr('cy', yScale(selectedData[1]))
         tooltip
-          .html('Year: ')
+          .html(
+            `Year: ${selectedData[0]}<br/>Average Rating: ${parseFloat(selectedData[1]).toFixed(
+              2,
+            )}`,
+          )
           .style('visibility', 'visible')
           .style('top', event.pageY - 10 + 'px')
           .style('left', event.pageX + 10 + 'px')
