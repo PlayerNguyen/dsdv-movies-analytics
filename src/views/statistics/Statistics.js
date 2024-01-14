@@ -1,4 +1,3 @@
-import { CCol, CRow, CWidgetStatsF } from '@coreui/react'
 import PieChart from './PieChart'
 import LineChart from './LineChart'
 import ScatterPlot from './ScatterPlot'
@@ -14,27 +13,27 @@ import BarChart from './BarChart'
 const Statistics = () => {
   return (
     <>
-      <CRow>
-        <CCol xs={3}>
-          <CWidgetStatsF className="mb-3" title="Widget title" value="89.9%" />
-        </CCol>
-        <CCol xs={3}>
-          <CWidgetStatsF className="mb-3" title="Widget title" value="89.9%" />
-        </CCol>
-        <CCol xs={3}>
-          <CWidgetStatsF className="mb-3" title="Widget title" value="89.9%" />
-        </CCol>
-        <CCol xs={3}>
-          <CWidgetStatsF className="mb-3" title="Widget title" value="89.9%" />
-        </CCol>
-      </CRow>
+      {/*<CRow>*/}
+      {/*  <CCol xs={3}>*/}
+      {/*    <CWidgetStatsF className="mb-3" title="Widget title" value="89.9%" />*/}
+      {/*  </CCol>*/}
+      {/*  <CCol xs={3}>*/}
+      {/*    <CWidgetStatsF className="mb-3" title="Widget title" value="89.9%" />*/}
+      {/*  </CCol>*/}
+      {/*  <CCol xs={3}>*/}
+      {/*    <CWidgetStatsF className="mb-3" title="Widget title" value="89.9%" />*/}
+      {/*  </CCol>*/}
+      {/*  <CCol xs={3}>*/}
+      {/*    <CWidgetStatsF className="mb-3" title="Widget title" value="89.9%" />*/}
+      {/*  </CCol>*/}
+      {/*</CRow>*/}
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
           id="panel1-header"
         >
-          Accordion 1
+          Top movies&apos; genre from 2012 to 2022
         </AccordionSummary>
         <AccordionDetails>
           <PieChart />
@@ -46,7 +45,7 @@ const Statistics = () => {
           aria-controls="panel2-content"
           id="panel2-header"
         >
-          Accordion 2
+          Average rating over 10 years (2012-2022)
         </AccordionSummary>
         <AccordionDetails>
           <LineChart />
@@ -58,7 +57,7 @@ const Statistics = () => {
           aria-controls="panel3-content"
           id="panel3-header"
         >
-          Accordion 3
+          Relationship between the rating index and the revenue of the box office (2012-2022)
         </AccordionSummary>
         <AccordionDetails>
           <ScatterPlot />
@@ -70,7 +69,7 @@ const Statistics = () => {
           aria-controls="panel4-content"
           id="panel4-header"
         >
-          Accordion 4
+          Budgets spending to make a movies (2012-2022)
         </AccordionSummary>
         <AccordionDetails>
           <BarChart />
