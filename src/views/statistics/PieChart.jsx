@@ -2,7 +2,7 @@ import * as d3 from 'd3'
 import { useEffect, useRef } from 'react'
 import Data from './../../data/data.csv'
 
-const GRAPH_PROPERTY = { width: 320, height: 320, margin: 20 }
+const GRAPH_PROPERTY = { width: 700, height: 700, margin: 20 }
 
 export default function PieChart() {
   const ref = useRef()
@@ -39,6 +39,7 @@ export default function PieChart() {
       const data_ready = pie(Object.entries(data).filter((_, _index) => _index >= 0))
       var arcGenerator = d3.arc().innerRadius(0).outerRadius(radius)
       // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
+      console.log(data_ready)
       svgElement
         .append('g')
         .attr('transform', `translate(${GRAPH_PROPERTY.width / 2}, ${GRAPH_PROPERTY.height / 2})`)
@@ -61,8 +62,12 @@ export default function PieChart() {
         .enter()
         .append('text')
         .text(function (d) {
-          return d.data[0]
+          let percentage = ((d.endAngle - d.startAngle) / (2 * Math.PI)) * 100
+          return `${d.data[0]}: ${percentage.toFixed(2)}%`
         })
+        .style('font-family', 'sans-serif')
+        .style('font-size', 11)
+        .style('font-weight', 300)
         .attr('transform', function (d) {
           console.log(arcGenerator.centroid(d))
           return 'translate(' + arcGenerator.centroid(d) + ')'
@@ -74,7 +79,6 @@ export default function PieChart() {
   }, [])
   return (
     <div>
-      <h4>Top 2010</h4>
       <svg ref={ref} style={{ width: GRAPH_PROPERTY.width, height: GRAPH_PROPERTY.height }} />
     </div>
   )

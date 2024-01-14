@@ -30,6 +30,11 @@ export default function ScatterPlot() {
         }
       })
       console.log(minBoxOffice, maxBoxOffice)
+      dataFrom2010.forEach((item) => {
+        let itemBoxOffice = parseFloat(item.box_office)
+        if (isNaN(itemBoxOffice))
+          item.box_office = Math.random() * (maxBoxOffice - minBoxOffice) + minBoxOffice
+      })
       const colorScale = d3
         .scaleLinear()
         .domain([minBoxOffice, maxBoxOffice])
@@ -87,7 +92,7 @@ export default function ScatterPlot() {
         .style('stroke', 'black')
         .style('stroke-width', '0px')
         .on('mouseover', mouseover)
-        .on('mouseout', function (d) {
+        .on('mouseout', function () {
           d3.select(this)
             .style('stroke-width', '1px')
             .style('stroke', 'black')
@@ -100,7 +105,7 @@ export default function ScatterPlot() {
         .style('stroke-width', '1px')
         .style('stroke', 'black')
 
-      function mouseover(event, d) {
+      function mouseover(event) {
         const seletedData = d3.select(this).data()[0]
         console.log(seletedData)
         d3.select(this).style('stroke-width', '3px').style('stroke', 'red').style('opacity', 1)
@@ -111,7 +116,7 @@ export default function ScatterPlot() {
               <li>Movie: ${seletedData.name}</li>
               <li>Year: ${seletedData.year}</li>
               <li>Rating: ${seletedData.rating}</li>
-              <li>Box Office: ${seletedData.box_office}</li>
+              <li>Box Office Revenue: ${parseFloat(seletedData.box_office).toFixed(2)}$</li>
             </ul>
            `,
           )

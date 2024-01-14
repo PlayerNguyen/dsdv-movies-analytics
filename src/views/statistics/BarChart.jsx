@@ -75,7 +75,13 @@ export default function BarChart() {
         .attr('transform', `translate(90,${GRAPH_PROPERTY.height - GRAPH_PROPERTY.margin})`)
         .call(xAxis)
       svgElement.append('g').attr('transform', `translate(90,10)`).call(yAxis)
-
+      svgElement
+        .append('text')
+        .attr('transform', `translate(700,1950)`)
+        .text('Budget ($)')
+        .style('text-anchor', 'middle')
+        .style('font-size', '20px')
+        .style('font-weight', 'bold')
       svgElement
         .selectAll('rect')
         .data(dataFrom2010)
@@ -98,13 +104,13 @@ export default function BarChart() {
         svgElement
           .append('text')
           .attr('x', xScale(dataFrom2010[i].budget) + 10)
-          .attr('y', (d) => {
+          .attr('y', () => {
             let name = dataFrom2010[i].name
             if (dataFrom2010[i].name.length > 15) name = name.slice(0, 15) + '...'
             return yScale(name) + 10
           })
           .attr('transform', `translate(90,23)`)
-          .text(dataFrom2010[i].budget)
+          .text(`${parseFloat(dataFrom2010[i].budget).toFixed(2)} $`)
           .style('font-size', '10px')
           .style('font-weight', 'bold')
       }
